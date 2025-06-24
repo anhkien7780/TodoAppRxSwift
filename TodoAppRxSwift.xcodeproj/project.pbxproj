@@ -7,15 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6CCE98573F336D022BF0E5F9 /* Pods_TodoAppRxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C99E54308747840DAAF8A1 /* Pods_TodoAppRxSwift.framework */; };
 		841D7D9A2E0A97D2000E33B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D7D992E0A97D2000E33B2 /* AppDelegate.swift */; };
 		841D7D9C2E0A97D2000E33B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D7D9B2E0A97D2000E33B2 /* SceneDelegate.swift */; };
 		841D7D9E2E0A97D2000E33B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841D7D9D2E0A97D2000E33B2 /* ViewController.swift */; };
 		841D7DA12E0A97D2000E33B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841D7D9F2E0A97D2000E33B2 /* Main.storyboard */; };
 		841D7DA32E0A97D4000E33B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 841D7DA22E0A97D4000E33B2 /* Assets.xcassets */; };
 		841D7DA62E0A97D4000E33B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 841D7DA42E0A97D4000E33B2 /* LaunchScreen.storyboard */; };
+		849B1FAA2E0A9CDE00961879 /* TodoItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 849B1FA92E0A9CDE00961879 /* TodoItemView.xib */; };
+		849B1FAC2E0A9CF900961879 /* TodoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B1FAB2E0A9CF900961879 /* TodoItemView.swift */; };
+		849B1FAF2E0A9E1900961879 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B1FAE2E0A9E1900961879 /* UIViewExtension.swift */; };
+		849B1FB12E0AA7E900961879 /* ListTodoScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B1FB02E0AA7E900961879 /* ListTodoScreenView.swift */; };
+		849B1FB42E0AA81D00961879 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B1FB32E0AA81D00961879 /* Coordinator.swift */; };
+		849B1FB62E0AA83700961879 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B1FB52E0AA83700961879 /* AppCoordinator.swift */; };
+		849B1FB92E0AA85D00961879 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B1FB82E0AA85D00961879 /* Todo.swift */; };
+		849B1FBB2E0AA89900961879 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B1FBA2E0AA89900961879 /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05C99E54308747840DAAF8A1 /* Pods_TodoAppRxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoAppRxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78E7D1D8AF9E56100F748658 /* Pods-TodoAppRxSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoAppRxSwift.debug.xcconfig"; path = "Target Support Files/Pods-TodoAppRxSwift/Pods-TodoAppRxSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		841D7D962E0A97D2000E33B2 /* TodoAppRxSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoAppRxSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		841D7D992E0A97D2000E33B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		841D7D9B2E0A97D2000E33B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +35,15 @@
 		841D7DA22E0A97D4000E33B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		841D7DA52E0A97D4000E33B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		841D7DA72E0A97D4000E33B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		849B1FA92E0A9CDE00961879 /* TodoItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoItemView.xib; sourceTree = "<group>"; };
+		849B1FAB2E0A9CF900961879 /* TodoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemView.swift; sourceTree = "<group>"; };
+		849B1FAE2E0A9E1900961879 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		849B1FB02E0AA7E900961879 /* ListTodoScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTodoScreenView.swift; sourceTree = "<group>"; };
+		849B1FB32E0AA81D00961879 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		849B1FB52E0AA83700961879 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		849B1FB82E0AA85D00961879 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		849B1FBA2E0AA89900961879 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		FF8283446AAEF24A68FFC2C6 /* Pods-TodoAppRxSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoAppRxSwift.release.xcconfig"; path = "Target Support Files/Pods-TodoAppRxSwift/Pods-TodoAppRxSwift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CCE98573F336D022BF0E5F9 /* Pods_TodoAppRxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +63,8 @@
 			children = (
 				841D7D982E0A97D2000E33B2 /* TodoAppRxSwift */,
 				841D7D972E0A97D2000E33B2 /* Products */,
+				EB873030B2205E483B119348 /* Pods */,
+				888ECE9B6E981E91EDE20A67 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +79,9 @@
 		841D7D982E0A97D2000E33B2 /* TodoAppRxSwift */ = {
 			isa = PBXGroup;
 			children = (
+				849B1FB72E0AA84C00961879 /* Models */,
+				849B1FB22E0AA80200961879 /* Coordinators */,
+				849B1FA72E0A9CAE00961879 /* Views */,
 				841D7D992E0A97D2000E33B2 /* AppDelegate.swift */,
 				841D7D9B2E0A97D2000E33B2 /* SceneDelegate.swift */,
 				841D7D9D2E0A97D2000E33B2 /* ViewController.swift */,
@@ -67,6 +93,68 @@
 			path = TodoAppRxSwift;
 			sourceTree = "<group>";
 		};
+		849B1FA72E0A9CAE00961879 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				849B1FA82E0A9CB700961879 /* Components */,
+				849B1FB02E0AA7E900961879 /* ListTodoScreenView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		849B1FA82E0A9CB700961879 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				849B1FAD2E0A9E0800961879 /* Extensions */,
+				849B1FA92E0A9CDE00961879 /* TodoItemView.xib */,
+				849B1FAB2E0A9CF900961879 /* TodoItemView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		849B1FAD2E0A9E0800961879 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				849B1FAE2E0A9E1900961879 /* UIViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		849B1FB22E0AA80200961879 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				849B1FB32E0AA81D00961879 /* Coordinator.swift */,
+				849B1FB52E0AA83700961879 /* AppCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		849B1FB72E0AA84C00961879 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				849B1FB82E0AA85D00961879 /* Todo.swift */,
+				849B1FBA2E0AA89900961879 /* Category.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		888ECE9B6E981E91EDE20A67 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05C99E54308747840DAAF8A1 /* Pods_TodoAppRxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EB873030B2205E483B119348 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				78E7D1D8AF9E56100F748658 /* Pods-TodoAppRxSwift.debug.xcconfig */,
+				FF8283446AAEF24A68FFC2C6 /* Pods-TodoAppRxSwift.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +162,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 841D7DAA2E0A97D4000E33B2 /* Build configuration list for PBXNativeTarget "TodoAppRxSwift" */;
 			buildPhases = (
+				242FB6FCEE2A95C66B002B5E /* [CP] Check Pods Manifest.lock */,
 				841D7D922E0A97D2000E33B2 /* Sources */,
 				841D7D932E0A97D2000E33B2 /* Frameworks */,
 				841D7D942E0A97D2000E33B2 /* Resources */,
+				BCDECB280A56AD77492B11ED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,20 +217,70 @@
 			files = (
 				841D7DA62E0A97D4000E33B2 /* LaunchScreen.storyboard in Resources */,
 				841D7DA32E0A97D4000E33B2 /* Assets.xcassets in Resources */,
+				849B1FAA2E0A9CDE00961879 /* TodoItemView.xib in Resources */,
 				841D7DA12E0A97D2000E33B2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		242FB6FCEE2A95C66B002B5E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TodoAppRxSwift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCDECB280A56AD77492B11ED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TodoAppRxSwift/Pods-TodoAppRxSwift-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TodoAppRxSwift/Pods-TodoAppRxSwift-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TodoAppRxSwift/Pods-TodoAppRxSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		841D7D922E0A97D2000E33B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849B1FAF2E0A9E1900961879 /* UIViewExtension.swift in Sources */,
+				849B1FBB2E0AA89900961879 /* Category.swift in Sources */,
 				841D7D9E2E0A97D2000E33B2 /* ViewController.swift in Sources */,
+				849B1FB12E0AA7E900961879 /* ListTodoScreenView.swift in Sources */,
 				841D7D9A2E0A97D2000E33B2 /* AppDelegate.swift in Sources */,
+				849B1FB92E0AA85D00961879 /* Todo.swift in Sources */,
+				849B1FB62E0AA83700961879 /* AppCoordinator.swift in Sources */,
+				849B1FAC2E0A9CF900961879 /* TodoItemView.swift in Sources */,
 				841D7D9C2E0A97D2000E33B2 /* SceneDelegate.swift in Sources */,
+				849B1FB42E0AA81D00961879 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +343,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -266,7 +406,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -287,6 +427,7 @@
 		};
 		841D7DAB2E0A97D4000E33B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78E7D1D8AF9E56100F748658 /* Pods-TodoAppRxSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -314,6 +455,7 @@
 		};
 		841D7DAC2E0A97D4000E33B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF8283446AAEF24A68FFC2C6 /* Pods-TodoAppRxSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
