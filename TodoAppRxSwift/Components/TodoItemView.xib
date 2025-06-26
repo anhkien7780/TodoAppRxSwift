@@ -45,7 +45,11 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q96-HI-85z">
-                    <rect key="frame" x="294" y="16" width="48" height="48"/>
+                    <rect key="frame" x="318" y="28" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="XNl-ER-sXn"/>
+                        <constraint firstAttribute="height" constant="24" id="s2j-T6-LgT"/>
+                    </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="Checked=False"/>
                 </button>
@@ -54,15 +58,14 @@
             <constraints>
                 <constraint firstItem="BTQ-jP-P3U" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="05g-GZ-qpn"/>
                 <constraint firstAttribute="trailing" secondItem="q96-HI-85z" secondAttribute="trailing" constant="16" id="1Nu-b0-FzN"/>
-                <constraint firstAttribute="bottom" secondItem="q96-HI-85z" secondAttribute="bottom" constant="16" id="9ic-ep-rSF"/>
                 <constraint firstItem="BTQ-jP-P3U" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="FS5-P7-BAk"/>
                 <constraint firstAttribute="bottom" secondItem="BTQ-jP-P3U" secondAttribute="bottom" constant="16" id="Mqw-Kh-Cpx"/>
                 <constraint firstItem="wJL-E3-R1T" firstAttribute="leading" secondItem="BTQ-jP-P3U" secondAttribute="trailing" constant="12" id="Uej-Yo-sJt"/>
                 <constraint firstItem="wJL-E3-R1T" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="abZ-4T-E8N"/>
-                <constraint firstItem="q96-HI-85z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="t11-nP-RAl"/>
+                <constraint firstItem="q96-HI-85z" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="bac-fV-LN3"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="106" y="-11"/>
+            <point key="canvasLocation" x="105.34351145038167" y="-11.267605633802818"/>
         </view>
     </objects>
     <resources>
