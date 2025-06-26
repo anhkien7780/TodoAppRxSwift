@@ -10,12 +10,17 @@ import UIKit
 import RxSwift
 
 class ListTodoScreenViewController: UIViewController{
+    @IBOutlet weak var addNewTaskButton: UIButton!
     @IBOutlet private weak var currentDateLabel: UILabel!
     
     let cellHeight: CGFloat = 80
     
     var viewModel = TodoListViewModel()
     let disposedBag = DisposeBag()
+    
+    private var uncompletedTableHeightConstraint: NSLayoutConstraint!
+    private var completedTableHeightConstraint: NSLayoutConstraint!
+
     
     private let uncompletedItemTableView: UITableView = {
         let table = UITableView()
@@ -45,7 +50,12 @@ class ListTodoScreenViewController: UIViewController{
         return table
     }()
     
-    private let scrollableView = UIScrollView()
+    private let scrollableView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        return scrollView
+    }()
     private let containerView = UIView()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,8 +96,15 @@ class ListTodoScreenViewController: UIViewController{
         
         uncompletedItemTableView.isScrollEnabled = false
         completedItemTableView.isScrollEnabled = false
+        uncompletedTableHeightConstraint = uncompletedItemTableView.heightAnchor.constraint(equalToConstant: 0)
+        uncompletedTableHeightConstraint.isActive = true
         
+        completedTableHeightConstraint = completedItemTableView.heightAnchor.constraint(equalToConstant: 0)
+        completedTableHeightConstraint.isActive = true
+
+        scrollableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
         view.addSubview(containerView)
+        view.bringSubviewToFront(addNewTaskButton)
         
         // Full screen scrollable content view
         NSLayoutConstraint.activate([
@@ -124,36 +141,39 @@ class ListTodoScreenViewController: UIViewController{
         viewModel.uncompletedTodos
             .bind(to: uncompletedItemTableView.rx.items(cellIdentifier: "UncompletedTodoCell", cellType: UncompletedTodoItemViewCell.self)){ row, item, cell in
                 cell.configure(todo: item)
+                cell.onCheckTapped = {
+                    self.viewModel.toggleTodoCompletion(item)
+                }
             }
             .disposed(by: disposedBag)
         
         viewModel.completedTodos
             .bind(to: completedItemTableView.rx.items(cellIdentifier: "TodoCell", cellType: TodoItemViewCell.self)){ row, item, cell in
                 cell.configure(todo: item)
+                cell.onCheckTapped = {
+                    self.viewModel.toggleTodoCompletion(item)
+                }
             }
             .disposed(by: disposedBag)
     }
     
     private func setTableViewSizes(){
-        viewModel.completedTodos
-            .map{ CGFloat($0.count) * self.cellHeight }
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self ] totalHeight in
-                self?.completedItemTableView.heightAnchor
-                    .constraint(equalToConstant: totalHeight)
-                    .isActive = true
-            })
-            .disposed(by: disposedBag)
-        
         viewModel.uncompletedTodos
-            .map{ CGFloat($0.count) * self.cellHeight }
+            .map { CGFloat($0.count) * self.cellHeight }
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self ] totalHeight in
-                self?.uncompletedItemTableView.heightAnchor
-                    .constraint(equalToConstant: totalHeight)
-                    .isActive = true
+            .subscribe(onNext: { [weak self] totalHeight in
+                self?.uncompletedTableHeightConstraint.constant = totalHeight
             })
             .disposed(by: disposedBag)
+
+        viewModel.completedTodos
+            .map { CGFloat($0.count) * self.cellHeight }
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] totalHeight in
+                self?.completedTableHeightConstraint.constant = totalHeight
+            })
+            .disposed(by: disposedBag)
+
     }
 }
 

@@ -7,15 +7,26 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
 class TodoItemViewCell: UITableViewCell{
     let todoView = TodoItemView()
+    var disposeBag = DisposeBag()
+    
+    var onCheckTapped: (() -> Void)?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupTodoView()
         
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupTodoView()
@@ -35,5 +46,11 @@ class TodoItemViewCell: UITableViewCell{
     
     func configure(todo: Todo){
         todoView.configureView(todo: todo)
+        
+        todoView.checkBox.rx.tap.bind{
+            [weak self] in
+            self?.onCheckTapped?()
+        }
+        .disposed(by: disposeBag)
     }
 }

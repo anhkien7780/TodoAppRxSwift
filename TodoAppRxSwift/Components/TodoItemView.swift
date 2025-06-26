@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+import RxSwift
 
 class TodoItemView: UIView {
     @IBOutlet weak var iconImage: UIImageView!
@@ -51,13 +51,13 @@ class TodoItemView: UIView {
             self.iconImage.image = UIImage(named: "Task")
         }
         
-        let taskAttributeText = NSAttributedString(string: todo.taskTitle, attributes: [.strikethroughStyle: NSUnderlineStyle.single.rawValue, .strikethroughColor: UIColor.gray])
+        let taskAttributeText = NSAttributedString(string: todo.taskTitle, attributes: [.strikethroughStyle: NSUnderlineStyle.single.rawValue, .strikethroughColor: UIColor.black])
         self.taskTitle.attributedText = taskAttributeText
         
         if let time = todo.time {
             let attributedText = NSAttributedString(
                 string: time,
-                attributes: [.strikethroughStyle: NSUnderlineStyle.single.rawValue, .strikethroughColor: UIColor.gray]
+                attributes: [.strikethroughStyle: NSUnderlineStyle.single.rawValue, .strikethroughColor: UIColor.black]
             )
             self.timeLabel.attributedText = attributedText
         } else{

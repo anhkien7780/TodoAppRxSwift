@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TodoItemView" customModule="TodoAppRxSwift" customModuleProvider="target">
             <connections>
-                <outlet property="checkBox" destination="q96-HI-85z" id="CfF-Uv-MTT"/>
+                <outlet property="checkBox" destination="q96-HI-85z" id="nj2-EX-VUj"/>
                 <outlet property="iconImage" destination="BTQ-jP-P3U" id="EXe-pW-FZy"/>
                 <outlet property="taskTitle" destination="d8P-f5-Ukx" id="hTF-Yr-zED"/>
                 <outlet property="timeLabel" destination="yLW-nF-kAt" id="hwM-PA-qPw"/>

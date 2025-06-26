@@ -7,9 +7,13 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class UncompletedTodoItemViewCell: UITableViewCell{
     let uncompletedTodoView = UncompletedTodoItemView()
+    let disposeBag = DisposeBag()
+    
+    var onCheckTapped: (() -> Void)?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -35,6 +39,12 @@ class UncompletedTodoItemViewCell: UITableViewCell{
     
     func configure(todo: Todo){
         uncompletedTodoView.configureView(todo: todo)
+        
+        uncompletedTodoView.checkBox.rx.tap.bind{
+            [weak self] in
+            self?.onCheckTapped?()
+        }
+        .disposed(by: disposeBag)
     }
     
 }

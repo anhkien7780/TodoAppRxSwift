@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListTodoScreenViewController" customModule="TodoAppRxSwift" customModuleProvider="target">
             <connections>
+                <outlet property="addNewTaskButton" destination="qh1-cf-ptV" id="a8R-hH-OPi"/>
                 <outlet property="currentDateLabel" destination="QgX-Li-e7s" id="H2g-YN-H1y"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kb8-rU-n6c"/>
             </connections>
