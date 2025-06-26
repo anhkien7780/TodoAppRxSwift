@@ -74,10 +74,9 @@ class ListTodoScreenViewController: UIViewController{
         
         containerView.addSubview(scrollableView)
         
-        [uncompletedItemTableView, completedItemTableView].forEach{
-            $0.register(TodoItemViewCell.self, forCellReuseIdentifier: "TodoCell")
-            $0.translatesAutoresizingMaskIntoConstraints = false
-        }
+        uncompletedItemTableView.register(UncompletedTodoItemViewCell.self, forCellReuseIdentifier: "UncompletedTodoCell")
+        
+        completedItemTableView.register(TodoItemViewCell.self, forCellReuseIdentifier: "TodoCell")
         
         [uncompletedItemTableView,
          completedTitleView,
@@ -123,7 +122,7 @@ class ListTodoScreenViewController: UIViewController{
     
     private func bindTableViews(){
         viewModel.uncompletedTodos
-            .bind(to: uncompletedItemTableView.rx.items(cellIdentifier: "TodoCell", cellType: TodoItemViewCell.self)){ row, item, cell in
+            .bind(to: uncompletedItemTableView.rx.items(cellIdentifier: "UncompletedTodoCell", cellType: UncompletedTodoItemViewCell.self)){ row, item, cell in
                 cell.configure(todo: item)
             }
             .disposed(by: disposedBag)
