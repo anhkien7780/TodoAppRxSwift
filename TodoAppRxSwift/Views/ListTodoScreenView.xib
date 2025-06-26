@@ -4,11 +4,10 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListTodoScreenView" customModule="TodoAppRxSwift" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListTodoScreenViewController" customModule="TodoAppRxSwift" customModuleProvider="target">
             <connections>
                 <outlet property="currentDateLabel" destination="QgX-Li-e7s" id="H2g-YN-H1y"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kb8-rU-n6c"/>
@@ -22,8 +21,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fsb-6K-P85">
                     <rect key="frame" x="0.0" y="59" width="393" height="222"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgX-Li-e7s">
-                            <rect key="frame" x="176.66666666666666" y="36" width="39.666666666666657" height="19.333333333333329"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="October 20, 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgX-Li-e7s">
+                            <rect key="frame" x="132" y="36" width="129" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -81,7 +80,7 @@
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" red="0.94685059790000003" green="0.96196526289999995" blue="0.9756224751" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="qh1-cf-ptV" secondAttribute="trailing" constant="16" id="6Xg-rl-PEn"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="qh1-cf-ptV" secondAttribute="bottom" constant="24" id="IIn-F9-w0p"/>
@@ -96,8 +95,5 @@
     <resources>
         <image name="Ellipse 1" width="342" height="342"/>
         <image name="Ellipse 2" width="145" height="145"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

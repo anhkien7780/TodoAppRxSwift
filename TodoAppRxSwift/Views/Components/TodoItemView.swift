@@ -27,19 +27,38 @@ class TodoItemView: UIView {
     
     private func commonInit(){
         guard let view = self.loadViewByNibName(nibName: "TodoItemView") else {return}
-        view.frame = self.bounds
+        view.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(view)
+        
+        taskTitle.numberOfLines = 0
+        
+        NSLayoutConstraint.activate([
+            view.topAnchor.constraint(equalTo: self.topAnchor),
+            view.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            view.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+        ])
     }
     
-    func configureView(iconImage: UIImage?, taskTitle: String, time: String? = nil, isCompleted: Bool){
-        self.iconImage.image = iconImage
-        self.taskTitle.text = taskTitle
-        if let time {
-            self.timeLabel.text = time
+    func configureView(todo: Todo){
+        switch todo.category {
+        case .Event:
+            self.iconImage.image = UIImage(named: "Event")
+        case .Task:
+            self.iconImage.image = UIImage(named: "Task")
+        case .Goal:
+            self.iconImage.image = UIImage(named: "Goal")
+        case .None:
+            self.iconImage.image = UIImage(named: "Task")
+        }
+        self.taskTitle.text = todo.taskTitle
+        if todo.time != nil{
+            self.timeLabel.text = todo.time
+            self.timeLabel.numberOfLines = 0
         } else {
             timeLabel.isHidden = true
         }
-        if isCompleted{
+        if todo.isCompleted{
             self.checkBox.setImage(UIImage(named: "Checked=True"), for: .normal)
         } else {
             self.checkBox.setImage(UIImage(named: "Checked=False"), for: .normal)

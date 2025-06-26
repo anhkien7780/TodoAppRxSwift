@@ -16,7 +16,7 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
-        let listTodoScreenVC = ListTodoScreenView()
+        let listTodoScreenVC = ListTodoScreenViewController()
         navigationController.pushViewController(listTodoScreenVC, animated: false)
     }
 }
