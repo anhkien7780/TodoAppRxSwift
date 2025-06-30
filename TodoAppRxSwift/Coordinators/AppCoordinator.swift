@@ -16,7 +16,16 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
+        showAddNewTask()
+    }
+    
+    func showTodoList(){
         let listTodoScreenVC = ListTodoScreenViewController()
         navigationController.pushViewController(listTodoScreenVC, animated: false)
+    }
+    
+    func showAddNewTask(){
+        let addNewTaskVC = AddNewTaskViewController()
+        navigationController.pushViewController(addNewTaskVC, animated: false)
     }
 }
