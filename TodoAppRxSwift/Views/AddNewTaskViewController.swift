@@ -78,6 +78,7 @@ class AddNewTaskViewController: UIViewController{
         super.viewDidLoad()
         setupView()
         setButtonTaps()
+        bindDatePicker()
     }
     
     private func setupView(){
@@ -168,8 +169,35 @@ class AddNewTaskViewController: UIViewController{
                 }
             })
             .disposed(by: disposeBag)
+        
+        suffixDateButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.showDatePicker()
+            })
+            .disposed(by: disposeBag)
+        suffixTimeButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.showDatePicker()
+            })
+            .disposed(by: disposeBag)
     }
     
+    private func bindDatePicker(){
+        datePicker.rx.date
+            .subscribe(onNext: { [weak self] selectedDate in
+                guard let self = self else { return }
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .medium
+                dateFormatter.timeStyle = .none
+                self.dateTextField.text = dateFormatter.string(from: selectedDate)
+                
+                let timeFormatter = DateFormatter()
+                timeFormatter.dateFormat = "HH:mm"
+                self.timeTextField.text = timeFormatter.string(from: selectedDate)
+            })
+            .disposed(by: disposeBag)
+    }
     @objc func showDatePicker() {
         hiddenTextField.becomeFirstResponder()
     }
