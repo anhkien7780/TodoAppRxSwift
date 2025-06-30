@@ -13,14 +13,24 @@ class ListTodoScreenViewController: UIViewController{
     @IBOutlet weak var addNewTaskButton: UIButton!
     @IBOutlet private weak var currentDateLabel: UILabel!
     
-    let cellHeight: CGFloat = 80
+    var viewModel: TodoListViewModel!
+    weak var coordinator: AppCoordinator?
     
-    var viewModel = TodoListViewModel()
+    init(viewModel: TodoListViewModel){
+        super.init(nibName: nil, bundle: nil)
+        self.viewModel = viewModel
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    let cellHeight: CGFloat = 80
     let disposedBag = DisposeBag()
     
     private var uncompletedTableHeightConstraint: NSLayoutConstraint!
     private var completedTableHeightConstraint: NSLayoutConstraint!
-
+    
     
     private let uncompletedItemTableView: UITableView = {
         let table = UITableView()
@@ -68,8 +78,9 @@ class ListTodoScreenViewController: UIViewController{
         setupView()
         bindTableViews()
         setTableViewSizes()
+        setButtonTap()
     }
-
+    
     private func setCurrentDate(){
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US")
@@ -101,7 +112,7 @@ class ListTodoScreenViewController: UIViewController{
         
         completedTableHeightConstraint = completedItemTableView.heightAnchor.constraint(equalToConstant: 0)
         completedTableHeightConstraint.isActive = true
-
+        
         scrollableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
         view.addSubview(containerView)
         view.bringSubviewToFront(addNewTaskButton)
@@ -126,10 +137,10 @@ class ListTodoScreenViewController: UIViewController{
             uncompletedItemTableView.leadingAnchor.constraint(equalTo: scrollableView.leadingAnchor),
             uncompletedItemTableView.trailingAnchor.constraint(equalTo: scrollableView.trailingAnchor),
             uncompletedItemTableView.widthAnchor.constraint(equalTo: scrollableView.widthAnchor),
-
+            
             completedTitleView.topAnchor.constraint(equalTo: uncompletedItemTableView.bottomAnchor, constant: 24),
             completedTitleView.leadingAnchor.constraint(equalTo: scrollableView.leadingAnchor),
-
+            
             completedItemTableView.topAnchor.constraint(equalTo: completedTitleView.bottomAnchor, constant: 24),
             completedItemTableView.leadingAnchor.constraint(equalTo: scrollableView.leadingAnchor),
             completedItemTableView.trailingAnchor.constraint(equalTo: scrollableView.trailingAnchor),
@@ -165,7 +176,7 @@ class ListTodoScreenViewController: UIViewController{
                 self?.uncompletedTableHeightConstraint.constant = totalHeight
             })
             .disposed(by: disposedBag)
-
+        
         viewModel.completedTodos
             .map { CGFloat($0.count) * self.cellHeight }
             .observe(on: MainScheduler.instance)
@@ -173,7 +184,16 @@ class ListTodoScreenViewController: UIViewController{
                 self?.completedTableHeightConstraint.constant = totalHeight
             })
             .disposed(by: disposedBag)
-
+        
+    }
+    
+    private func setButtonTap() {
+        addNewTaskButton.rx.tap
+            .subscribe(
+                onNext: {[weak self] in
+                    self?.coordinator?.navigateToAddNewTaskView()
+                }
+            )
+            .disposed(by: disposedBag)
     }
 }
-

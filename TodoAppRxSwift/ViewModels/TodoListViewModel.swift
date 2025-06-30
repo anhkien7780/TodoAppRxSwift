@@ -35,6 +35,10 @@ class TodoListViewModel {
         uncompletedTodos.accept(uncompleted)
         completedTodos.accept(completed)
     }
+    
+    func addNewTodo(_ todo: Todo){
+        uncompletedTodos.accept(uncompletedTodos.value + [todo])
+    }
 
     func toggleTodoCompletion(_ todo: Todo) {
         var newTodo = todo

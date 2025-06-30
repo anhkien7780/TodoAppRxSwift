@@ -52,7 +52,7 @@
                         <constraint firstAttribute="height" constant="24" id="rz1-cg-VOv"/>
                     </constraints>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" image="Checked=True"/>
+                    <buttonConfiguration key="configuration" style="plain" image="Checked=False"/>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -71,7 +71,7 @@
         </view>
     </objects>
     <resources>
-        <image name="Checked=True" width="24" height="24"/>
+        <image name="Checked=False" width="24" height="24"/>
         <image name="Task" width="48" height="48"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -9,23 +9,31 @@ import Foundation
 import UIKit
 
 class AppCoordinator: Coordinator {
-    var navigationController: UINavigationController
+    var window: UIWindow?
+    var navigationController: UINavigationController = UINavigationController()
+    var todoListViewModel: TodoListViewModel = TodoListViewModel()
+    var childCoordinators: [Coordinator] = []
     
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    init(window: UIWindow?) {
+        self.window = window
     }
     
     func start() {
-        showAddNewTask()
+        showTodoList()
     }
     
     func showTodoList(){
-        let listTodoScreenVC = ListTodoScreenViewController()
-        navigationController.pushViewController(listTodoScreenVC, animated: false)
+        let listTodoScreenVC = ListTodoScreenViewController(viewModel: todoListViewModel)
+        listTodoScreenVC.coordinator = self
+        navigationController.viewControllers = [listTodoScreenVC]
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
     }
     
-    func showAddNewTask(){
-        let addNewTaskVC = AddNewTaskViewController()
-        navigationController.pushViewController(addNewTaskVC, animated: false)
+    func navigateToAddNewTaskView(){
+        let addNewTaskVC = AddNewTaskViewController(viewModel: todoListViewModel)
+        addNewTaskVC.modalPresentationStyle = .pageSheet
+        addNewTaskVC.modalTransitionStyle = .coverVertical
+        navigationController.present(addNewTaskVC, animated: true, completion: nil)
     }
 }
