@@ -55,6 +55,7 @@ class UncompletedTodoItemView: UIView{
         if todo.time != nil{
             self.timeLabel.text = todo.time
             self.timeLabel.numberOfLines = 0
+            self.timeLabel.isHidden = false
         } else {
             timeLabel.isHidden = true
         }

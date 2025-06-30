@@ -60,6 +60,7 @@ class TodoItemView: UIView {
                 attributes: [.strikethroughStyle: NSUnderlineStyle.single.rawValue, .strikethroughColor: UIColor.black]
             )
             self.timeLabel.attributedText = attributedText
+            self.timeLabel.isHidden = false
         } else{
             self.timeLabel.isHidden = true
         }

@@ -30,6 +30,13 @@ class AddNewTaskViewController: UIViewController{
     @IBOutlet weak var eventCategoryButton: UIButton!
     @IBOutlet weak var goalCategoryButton: UIButton!
     @IBOutlet weak var timeTextField: UITextField!
+    let datePicker: UIDatePicker = {
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .dateAndTime
+        datePicker.preferredDatePickerStyle = .wheels
+        return datePicker
+    }()
+    let hiddenTextField = UITextField()
     let suffixTimeButtonContainer: UIView = {
         let view = UIView()
         view.backgroundColor = .clear
@@ -98,6 +105,15 @@ class AddNewTaskViewController: UIViewController{
         saveButton.layer.cornerRadius = 28
         saveButton.clipsToBounds = true
         
+        // Date picker as hidden text field
+        hiddenTextField.inputView = datePicker
+        hiddenTextField.isHidden = true
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Xong", style: .done, target: self, action: #selector(hideDatePicker))
+        toolbar.setItems([doneButton], animated: false)
+        hiddenTextField.inputAccessoryView = toolbar
+        view.addSubview(hiddenTextField)
     }
     
     private func setButtonTaps(){
@@ -130,7 +146,6 @@ class AddNewTaskViewController: UIViewController{
                 self?.goalCategoryButton.alpha = 0.3
             })
             .disposed(by: disposeBag)
-        
         saveButton.rx.tap
             .subscribe(onNext: {[weak self] in
                 var todo = Todo(
@@ -153,6 +168,14 @@ class AddNewTaskViewController: UIViewController{
                 }
             })
             .disposed(by: disposeBag)
+    }
+    
+    @objc func showDatePicker() {
+        hiddenTextField.becomeFirstResponder()
+    }
+    
+    @objc func hideDatePicker() {
+        hiddenTextField.resignFirstResponder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
